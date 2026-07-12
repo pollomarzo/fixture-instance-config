@@ -1,12 +1,19 @@
 version: 1
 
 # Fixture brand (design §5). The journal's visual identity — logo, colors, nav, footer.
-# Materialized as REAL files (logo.svg beside this) because typst/theme load brand
-# assets by path, not URL ([R38], dec. 19). Moved here from the website's nexus.yml.
+# Moved here from the website's nexus.yml.
+#
+# LIVE FINDING (first shim run): relative asset paths (`./logo.svg`) do NOT resolve
+# through myst's `extends` chain — myst resolves them against the PAPER root, not this
+# brand dir, so the HTML build fails ("unable to resolve file"). The real nexus.yml uses
+# absolute URLs for exactly this reason. Until compose() absolutizes instance-relative
+# asset paths (the [R38]/dec.19 "local files by path" intent), use URLs here. A missing/
+# unresolved `favicon` makes myst's static prerender fatally 500 on /favicon.ico.
 site:
   options:
     logo_text: Fixture Journal
-    logo: ./logo.svg
+    logo: https://raw.githubusercontent.com/impact-scholars/impact-scholars.github.io/v0.1.0/static/logos/logo-black.svg
+    favicon: https://raw.githubusercontent.com/impact-scholars/impact-scholars.github.io/v0.1.0/static/logos/logo-black.svg
     logo_url: https://fixture.example.org
   nav:
   - title: Gallery
