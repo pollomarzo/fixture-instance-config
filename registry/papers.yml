@@ -1,0 +1,14 @@
+# Fixture registry (design §9). Finding 1 / [R47]: id, slug, and location are THREE distinct
+# coordinates. `id` is the deposit/dedup key (myst-native project.id); `slug` is the
+# URL/thumbnail path; `location` is where the paper lives (repo + path, so a paper can
+# move or share a repo without changing its identity). Additive-only (dec. 24).
+#
+# Interim dogfood: the single entry points at the pushable paper repo below. `id` matches
+# the paper's real project.id (fixture-2026-interim-paper), NOT the instance id_sentinel.
+- id: fixture-2026-interim-paper
+  slug: fixture-interim-paper
+  location:
+    repo: pollomarzo/fixture-paper-repo
+    path: .
+  edition: fixture-edition
+  # doi absent until deposited
