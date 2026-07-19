@@ -18,3 +18,10 @@ site:
   nav:
   - title: Gallery
     url: https://fixture.example.org
+
+# The typst PDF watermark. Unlike the site logo/favicon above (URLs are fine for HTML), typst
+# cannot fetch — it must be a real LOCAL file, resolved via compose()'s brand-asset
+# absolutization (`./logo.svg` -> <instanceRoot>/brand/logo.svg).
+project:
+  options:
+    logo: ./logo.svg
